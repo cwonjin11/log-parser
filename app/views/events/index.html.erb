@@ -6,7 +6,10 @@
 
 <% @events.each do |event|%>
 <li><%= event.data %></li>
-<button>click here to parse</button>
+
+
+
+<%= button_to 'Parse', event_path(event), method: :get %>
 <%= button_to 'Delete', event_path(event), method: :delete %><br/><br/>
 
 
