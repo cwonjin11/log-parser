@@ -2,7 +2,7 @@ require 'pry'
 require 'json'
 class EventsController < ApplicationController
 
-
+    before_action :find_event, only: [:show, :destroy]
 
     def index
 
@@ -23,6 +23,13 @@ class EventsController < ApplicationController
     
 
     end
+    def show
+
+    # parsing source IP address
+    # parsing Destination IP address
+
+
+    end
 
     def new
 
@@ -40,7 +47,7 @@ class EventsController < ApplicationController
 
         if @event.save
             flash[:message] = "You've successfully created a new event."
-            redirect_to new_event_path(@event) #directly send the user to the review page 
+            redirect_to events_path(@event) #directly send the user to the review page 
         else
             render :new
         end
@@ -63,8 +70,19 @@ class EventsController < ApplicationController
     end
 
 
+    def destroy
+        @event.destroy
+        flash[:message] = "You've successfully deleted the event!"
+        redirect_to events_path
+
+    end
+
 
     private
+
+        def find_event
+            @event= Event.find_by_id(params[:id])
+        end
 
         def event_params
             params.require(:event).permit(:data) 

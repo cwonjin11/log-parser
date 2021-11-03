@@ -1,10 +1,14 @@
 
 <h1>All events</h1>
-<h2>You have total <%= @events.count %> events</h2>
+<h2>You have total <%= @events.count %> events </h2> 
+<%= button_to 'add a new data', new_event_path, method: :get %> <br/><br/><br/>
+
+
 <% @events.each do |event|%>
 <li><%= event.data %></li>
 <button>click here to parse</button>
-<button>delete </button>
+<%= button_to 'Delete', event_path(event), method: :delete %><br/><br/>
+
 
 <% end %>
 
@@ -13,4 +17,3 @@
 <br/>
 <br/>
 
-<%= button_to 'add a new data', new_event_path, method: :get %>
