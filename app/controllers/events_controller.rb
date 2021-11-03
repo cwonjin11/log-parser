@@ -28,6 +28,7 @@ class EventsController < ApplicationController
     # parsing source IP address
     
     @srcIP = @event.data.match(/src=(?<source_ip>(?:\d{1,3}\.){3}\d{1,3})/)
+    @dstIP = @event.data.match(/dst=(?<destination_ip>(?:\d{1,3}\.){3}\d{1,3})/)
     # binding.pry
     # parsing Destination IP address
 
