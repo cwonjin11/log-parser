@@ -1,24 +1,13 @@
-# README
+Log-parser is a Ruby on Rails web application that analyze event logs.
+User can add a log through a form and can parse the log by clicking the button.
+All parsed logs can be seen in one page with "source IP address" and "destination IP address".
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+## Install Instructions
 
-* Ruby version
+Visit [log-parser](https://github.com/cwonjin11/log-parser) to begin using the app.
 
-* System dependencies
+Clone this repository, run `bundle install`, `rails db:migrate`, and then run `rails s`. Open a new tab in your browser of (http://localhost:3000) to start your rails server
 
-* Configuration
 
-* Database creation
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
