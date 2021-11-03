@@ -1,5 +1,6 @@
 require 'pry'
 require 'json'
+require 'ipaddress'
 class EventsController < ApplicationController
 
     before_action :find_event, only: [:show, :destroy]
@@ -16,6 +17,10 @@ class EventsController < ApplicationController
         
         # parsing Destination IP address
         @dstIP = @event.data.match(/dst=((\d{1,3}\.){3}\d{1,3})/)[1]
+        # binding.pry
+        @srcIP_validation_check = IPAddress.valid? @srcIP
+        @dstIP_validation_check = IPAddress.valid? @dstIP
+        binding.pry
     end
 
 

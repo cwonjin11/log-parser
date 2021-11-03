@@ -1,9 +1,13 @@
 <h1>Log Details</h1>
 
+
 <%= @event.data %>
-
-<h2>Source Ip Address : <%= @srcIP  %></h2>
-<h2>Destination Ip Address : <%= @dstIP  %></h2>
-
+<ul>
+<li>Source Ip Address : <%= @srcIP  %></li>
+<li>Source IP is Valid : <%= @srcIP_validation_check %></li>
+<br/>
+<li>Destination Ip Address : <%= @dstIP  %></li>
+<li>Destination IP is Valid : <%= @dstIP_validation_check %></li>
+</ul>
 <%= button_to 'Back',  events_path, method: :get %>
 
