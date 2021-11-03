@@ -1,7 +1,16 @@
 
-<h1>All event</h1>
-<h2>Here is the test file: </h2>
-
-<%= @file %>
-
+<h1>All events</h1>
+<h2>You have total <%= @events.count %> events</h2>
+<% @events.each do |event|%>
+<li><%= event %></li>
 <button>click here to parse</button>
+<button>delete </button>
+
+<% end %>
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+<%= button_to 'add a new data', new_event_path, method: :post %>

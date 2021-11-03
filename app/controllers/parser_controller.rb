@@ -6,10 +6,17 @@ class ParserController < ApplicationController
 
 
     def index 
-        @result = File.open("sample_data.txt", "r") do |file|
-            file.readline()
-            binding.pry
-            end
+        @data = File.readlines('sample_data.txt')
+        # binding.pry
+        # @event = @data.each do |line|
+        #     # binding.pry
+        #     if line.start_with?(/\d+/)
+        #         puts "\n"
+        #     else
+        #         puts "wow"
+        #     end
+        # end
+
 
     end
       
