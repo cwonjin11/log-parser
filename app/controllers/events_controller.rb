@@ -30,7 +30,7 @@ class EventsController < ApplicationController
     def create
         @event = Event.new(event_params)
         if @event.save
-            flash[:message] = "You've successfully created a new event."
+            flash[:message] = "You've successfully created a new log."
             redirect_to events_path(@event) #directly send the user to the review page 
         else
             render :new
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
 
     def destroy
         @event.destroy
-        flash[:message] = "You've deleted the event!"
+        flash[:message] = "You've deleted the log!"
         redirect_to events_path
 
     end
