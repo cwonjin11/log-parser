@@ -2,7 +2,7 @@
 <h1>All events</h1>
 <h2>You have total <%= @events.count %> events</h2>
 <% @events.each do |event|%>
-<li><%= event %></li>
+<li><%= event.data %></li>
 <button>click here to parse</button>
 <button>delete </button>
 
@@ -13,4 +13,4 @@
 <br/>
 <br/>
 
-<%= button_to 'add a new data', new_event_path, method: :post %>
+<%= button_to 'add a new data', new_event_path, method: :get %>
