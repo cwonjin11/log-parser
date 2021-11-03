@@ -20,7 +20,7 @@ class EventsController < ApplicationController
         # binding.pry
         @srcIP_validation_check = IPAddress.valid? @srcIP
         @dstIP_validation_check = IPAddress.valid? @dstIP
-        binding.pry
+        # binding.pry
     end
 
 
