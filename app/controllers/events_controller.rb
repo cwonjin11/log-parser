@@ -19,13 +19,13 @@ class EventsController < ApplicationController
         @srcIP_validation_check = IPAddress.valid? @srcIP
         @dstIP_validation_check = IPAddress.valid? @dstIP
         if @srcIP_validation_check == false
-            binding.pry
             @srcIP_private_check = "Invalid IP"
-            @dstIP_private_check = "Invalid IP"
+            ip2 = IPAddress @dstIP
+            @dstIP_private_check = ip2.private?
+            # binding.pry
         else
             ip = IPAddress @srcIP
             @srcIP_private_check = ip.private?
-
             ip2 = IPAddress @dstIP
             @dstIP_private_check = ip2.private?
         end
