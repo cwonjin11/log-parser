@@ -22,7 +22,6 @@ class EventsController < ApplicationController
             @srcIP_private_check = "Invalid IP"
             ip2 = IPAddress @dstIP
             @dstIP_private_check = ip2.private?
-            # binding.pry
         else
             ip = IPAddress @srcIP
             @srcIP_private_check = ip.private?
@@ -30,9 +29,6 @@ class EventsController < ApplicationController
             @dstIP_private_check = ip2.private?
         end
 
-
-
-        # binding.pry
     end
 
 
@@ -58,6 +54,8 @@ class EventsController < ApplicationController
         redirect_to events_path
 
     end
+
+
 
 
     private
