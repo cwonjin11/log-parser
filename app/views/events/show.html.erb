@@ -1,20 +1,29 @@
 <h1>Log Details</h1>
 
-
+<li>Log created at : <%= @event.datetime %></li><br>
 <%= @event.data %>
-<ul>
-<li>created_at : <%= @event.datetime %></li><br>
 
-<li>Source IP Address : <%= @srcIP  %></li>
-<li>Source IP is Valid : <%= @srcIP_validation_check %></li>
-<li>Source IP is Private : <%= @srcIP_private_check %></li>
-<br/>
-<li>Destination IP Address : <%= @dstIP  %></li>
-<li>Destination IP is Valid : <%= @dstIP_validation_check %></li>
-<li>Destination IP is Priavte : <%= @dstIP_private_check %></li>
+<h2>< Source IP ></h2>
+<ul>
+    <li>Source IP Address : <%= @srcIP  %></li>
+    <li>Source IP is Valid : <%= @srcIP_validation_check %></li>
+    <li>Source IP is Private : <%= @srcIP_private_check %></li>
 </ul>
 
-<ul>
-<!-- <li><%= @event.comment %><%= @event.comment %></li> -->
+<h2>< Destination IP ></h2>
+    <ul>
+        <li>Destination IP Address : <%= @dstIP  %></li>
+        <li>Destination IP is Valid : <%= @dstIP_validation_check %></li>
+        <li>Destination IP is Priavte : <%= @dstIP_private_check %></li>
+    </ul>
+
+<h2>< Comments ></h2>
+    <ul>
+        <% @event.comments.each do |content| %>
+        <li><%= content.comment  %></li>
+        <%end%>
+        <%= button_to 'Add comments',  new_event_comment_path(@event), method: :get %>
+    </ul>
+
 <%= button_to 'Back',  events_path, method: :get %>
 

@@ -8,9 +8,9 @@
 
 <div>
 <% @events.each do |event|%>
-<li>Created_at : <%= event.datetime %></li>
+<li>creation: <%= event.datetime %>  ||  <%= event.comments.count %> comments </li>
+
 <li><%= event.data %></li>
-<!-- <li><%= event.comment %></li> -->
 <%= button_to 'Parse Log', event_path(event), method: :get %>
 <%= button_to 'Delete', event_path(event), method: :delete %><br/><br/>
 <% end %>
