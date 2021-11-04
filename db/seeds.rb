@@ -23,7 +23,12 @@ Event.create!(data: "<37>CEF:0|TippingPoint|UnityOne|1.0.0.17|7610|RepDV-Countri
 Event.create!(data: "<36>CEF:0|TippingPoint|UnityOne|1.0.0.17|560|0560: TCP: Version Request (TCP)|4| app=TCP cnt=1 dst=72.44.211.23 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=84084733 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Inbound cs1Label=Profile Name cs2=00000002-0002-0002-0002-000000000560 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000000560 cs3Label=Signature UUID cs4=6A 6B cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=Phoenix-1400N-1 cs6= cs6Label=Filter Message Parms src=192.168.1.50 spt=52669 externalId=19277738 rt=1539337861062 cat=Reconnaissance proto=TCP deviceInboundInterface=11 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost=DTM-AdluminMBP sourceTranslatedAddress=192.168.1.50 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom=");
 Event.create!(data: "<36>CEF:0|TippingPoint|UnityOne|1.0.0.17|560|0560: TCP: Version Request (TCP)|4| app=TCP cnt=1 dst=185.26.219.34 dpt=443 act=Block cn1=0 cn1Label=VLAN ID cn2=84084733 cn2Label=Taxonomy cn3=0 cn3Label=Packet Trace cs1=WCU-External-Inbound cs1Label=Profile Name cs2=00000002-0002-0002-0002-000000000560 cs2Label=Policy UUID cs3=00000001-0001-0001-0001-000000000560 cs3Label=Signature UUID cs4=6A 6B cs4Label=ZoneNames cs5=TipSMS cs5Label=SMS Name dvchost=Phoenix-1400N-1 cs6= cs6Label=Filter Message Parms src=10.0.1.175 spt=52669 externalId=19277738 rt=1539337861062 cat=Reconnaissance proto=TCP deviceInboundInterface=11 c6a2= c6a2Label=Source IPv6 c6a3= c6a3Label=Destination IPv6 request= requestMethod= dhost=DTM-AdluminMBP sourceTranslatedAddress=10.0.1.175 c6a1= c6a1Label=Client IPv6 suser= sntdom= duser= dntdom=");
 
-
+10.times do
+Comment.create(
+    comment: Faker::Restaurant.review,
+    event: Event.all.sample
+)
+end
 
 
 puts "seeding done ✅!!"
