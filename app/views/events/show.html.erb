@@ -3,13 +3,18 @@
 
 <%= @event.data %>
 <ul>
-<li>Source Ip Address : <%= @srcIP  %></li>
+<li>created_at : <%= @event.datetime %></li><br>
+
+<li>Source IP Address : <%= @srcIP  %></li>
 <li>Source IP is Valid : <%= @srcIP_validation_check %></li>
 <li>Source IP is Private : <%= @srcIP_private_check %></li>
 <br/>
-<li>Destination Ip Address : <%= @dstIP  %></li>
+<li>Destination IP Address : <%= @dstIP  %></li>
 <li>Destination IP is Valid : <%= @dstIP_validation_check %></li>
 <li>Destination IP is Priavte : <%= @dstIP_private_check %></li>
 </ul>
+
+<ul>
+<!-- <li><%= @event.comment %><%= @event.comment %></li> -->
 <%= button_to 'Back',  events_path, method: :get %>
 

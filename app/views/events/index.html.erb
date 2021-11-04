@@ -1,20 +1,22 @@
 
 <h1>All events : Total <%= @events.count %> events</h1>
 
+<div>
 <%= button_to 'Add a new log', new_event_path, method: :get %>
-<%= button_to 'Parsed Logs', parsers_path, method: :get %> <br/><br/>
+<%= button_to 'ALL Parsed Logs', parsers_path, method: :get %><br/><br/>
+</div>
 
-
+<div>
 <% @events.each do |event|%>
+<li>Created_at : <%= event.datetime %></li>
 <li><%= event.data %></li>
-
-
-
-<%= button_to 'Parse', event_path(event), method: :get %>
+<!-- <li><%= event.comment %></li> -->
+<%= button_to 'Parse Log', event_path(event), method: :get %>
 <%= button_to 'Delete', event_path(event), method: :delete %><br/><br/>
-
-
 <% end %>
+</div>
+
+
 
 <br/>
 <br/>
