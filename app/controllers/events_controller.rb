@@ -1,3 +1,4 @@
+require 'ipaddress'
 
 class EventsController < ApplicationController
 
@@ -18,6 +19,15 @@ class EventsController < ApplicationController
         # binding.pry
         @srcIP_validation_check = IPAddress.valid? @srcIP
         @dstIP_validation_check = IPAddress.valid? @dstIP
+        
+        ip = IPAddress @srcIP
+        @srcIP_private_check = ip.private?
+        
+        ip2 = IPAddress @dstIP
+        @dstIP_private_check = ip2.private?
+        
+
+
         # binding.pry
     end
 

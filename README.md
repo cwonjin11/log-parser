@@ -11,3 +11,5 @@ Clone this repository, run `bundle install`, `rails db:migrate`, and then run `r
 
 
 
+## reference 
+Class: IPAddress::IPv4 - RubyDoc.info => https://www.rubydoc.info/gems/ipaddress/0.8.0/IPAddress/IPv4#private%3F-instance_method
