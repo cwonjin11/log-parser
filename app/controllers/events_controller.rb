@@ -1,5 +1,5 @@
 require 'ipaddress'
-
+require 'pry'
 class EventsController < ApplicationController
 
     before_action :find_event, only: [:show, :destroy]
@@ -19,13 +19,18 @@ class EventsController < ApplicationController
         # binding.pry
         @srcIP_validation_check = IPAddress.valid? @srcIP
         @dstIP_validation_check = IPAddress.valid? @dstIP
-        
-        ip = IPAddress @srcIP
-        @srcIP_private_check = ip.private?
-        
-        ip2 = IPAddress @dstIP
-        @dstIP_private_check = ip2.private?
-        
+        if @srcIP_validation_check == false
+            # binding.pry
+            @srcIP_private_check = "Invalid IP"
+            @dstIP_private_check = "Invalid IP"
+        else
+            ip = IPAddress @srcIP
+            @srcIP_private_check = ip.private?
+
+            ip2 = IPAddress @dstIP
+            @dstIP_private_check = ip2.private?
+        end
+
 
 
         # binding.pry
