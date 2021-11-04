@@ -1,3 +1,5 @@
+require 'ipaddress'
+require 'pry'
 class ApplicationController < ActionController::Base
 
     # def data
