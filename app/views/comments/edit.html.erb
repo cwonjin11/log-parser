@@ -1,0 +1,13 @@
+
+
+<h1>edit form</h1>
+
+<%= form_with model: ([@event, @comment]) do |f| %> 
+
+<%= f.label :comment %>
+<%= f.text_area :comment, placeholder: @comment.comment %><br/>
+
+<%= f.submit "Submit"%>
+
+
+<% end %>
