@@ -13,7 +13,7 @@ Visit [log-parser](https://github.com/cwonjin11/log-parser) to begin using the a
 4. Open a new tab in your browser of (http://localhost:3000) to start your rails server
 
 If you have error mentioning "Rails: Webpacker::Manifest::MissingEntryError"
-run `bundle exec rails webpacker:install` and then run rails server again.
+run `rails webpacker:install` and then run rails server again.
 
 
 ## reference 
