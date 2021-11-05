@@ -22,13 +22,14 @@
 
 
     <ul>
-    <li>Source IP : <%= @srcIP %></li>
-    <li>Source IP is Valid : <%= IPAddress.valid? @srcIP %> </li>
-    <li>Source IP is Private : <%= @srcIP_private_check %> </li>
-
-    <li>Destination IP : <%= @dstIP %></li>
-    <li>Destination IP is Valid : <%= IPAddress.valid? @dstIP %> </li>
-    <li>Destination IP is Private : <%= @dstIP_private_check %> </li>
+    <li>Source IP : <span style="color:crimson;"><%= @srcIP %></span></li>
+    <li>Source IP is Valid : <span style="color:crimson;"><%= IPAddress.valid? @srcIP %> </span></li>
+    <li>Source IP is Private : <span style="color:crimson;"><%= @srcIP_private_check %> </span></li>
+   
+    <li>Destination IP : <span style="color:crimson;"><%= @dstIP %></li>
+    <li>Destination IP is Valid : <span style="color:crimson;"><%= IPAddress.valid? @dstIP %> </span></li>
+    <li>Destination IP is Private : <span style="color:crimson;"><%= @dstIP_private_check %>  </span></li>
+    <li>Total comments :<span style="color:crimson;">  <%= link_to event.comments.count, event_path(event) %></span></li>
 
 
     

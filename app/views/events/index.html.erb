@@ -9,7 +9,8 @@
 
 <div>
 <% @events.each do |event|%>
-<li>creation: <%= event.datetime %>  ||  <%= event.comments.count %> comments </li>
+<li><span style="color:blue;">  creation: <%= event.datetime %>  </span> <span style="color:crimson;"> </li> 
+<li> <span style="color:blue;"> Total <%= event.comments.count %> comments </span> </li>
 
 <li><%= event.data %></li>
 <%= button_to 'Parse Log', event_path(event), method: :get %>
