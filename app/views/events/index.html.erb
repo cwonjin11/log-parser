@@ -2,9 +2,10 @@
 <h1>All events : Total <%= @events.count %> events</h1>
 
 <div>
-<%= button_to 'Add a new log', new_event_path, method: :get %>
-<%= button_to 'ALL Parsed Logs', parsers_path, method: :get %><br/><br/>
+    <%= button_to 'Add a new log', new_event_path, method: :get %>
+    <%= button_to 'ALL Parsed Logs', parsers_path, method: :get %>
 </div>
+<br/><br/>
 
 <div>
 <% @events.each do |event|%>
