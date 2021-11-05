@@ -1,7 +1,6 @@
 
 class EventsController < ApplicationController
-
-    before_action :find_event, only: [:show, :destroy]
+    before_action :find_event
 
     def index
         @events = Event.all 
@@ -9,15 +8,16 @@ class EventsController < ApplicationController
 
 
     def show
+        @event= Event.find_by_id(params[:id])
         # parsing source IP address
         @srcIP = @event.data.match(/src=((\d{1,3}\.){3}\d{1,3})/)[1]
-        # binding.pry
-        
         # parsing Destination IP address
         @dstIP = @event.data.match(/dst=((\d{1,3}\.){3}\d{1,3})/)[1]
-        # binding.pry
+        # validation check for source IP
         @srcIP_validation_check = IPAddress.valid? @srcIP
+        # validation check for destination ip
         @dstIP_validation_check = IPAddress.valid? @dstIP
+        # private check 
         if @srcIP_validation_check == false
             @srcIP_private_check = "Invalid IP"
             ip2 = IPAddress @dstIP
@@ -41,7 +41,7 @@ class EventsController < ApplicationController
         @event = Event.new(event_params)
         if @event.save
             flash[:message] = "You've successfully created a new log."
-            redirect_to events_path(@event) #directly send the user to the review page 
+            redirect_to events_path(@event)
         else
             render :new
         end
@@ -52,21 +52,19 @@ class EventsController < ApplicationController
         @event.destroy
         flash[:message] = "You've deleted the log!"
         redirect_to events_path
-
     end
 
 
 
 
     private
+    def find_event
+        @event= Event.find_by_id(params[:id])
+    end
 
-        def find_event
-            @event= Event.find_by_id(params[:id])
-        end
-
-        def event_params
-            params.require(:event).permit(:data) 
-        end     
+    def event_params
+        params.require(:event).permit(:data) 
+    end     
     
 
 end
