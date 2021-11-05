@@ -17,13 +17,15 @@
         <li>Destination IP is Priavte : <%= @dstIP_private_check %></li>
     </ul>
 
-<h2>< Comments ></h2>
+<h2>< Comments > total <%= @event.comments.size %> comments </h2>
         <%= button_to 'Add comments',  new_event_comment_path(@event), method: :get %>
     <ul>
-        <% @event.comments.each do |content| %>
-        <li><%= content.comment  %> 
-        <%= button_to 'Delete', event_comment_path(@event, content), method: :delete %>
-        </li>
+        <% @event.comments.each do |comment| %>
+        <li><%= comment.comment  %>  </li>
+        
+        <%= button_to "Edit",  edit_event_comment_path(@event, comment), :method => :get  %>
+        <%= button_to 'Delete', event_comment_path(@event, comment), method: :delete %>
+        
         <%end%>
         <br/>
     </ul>
