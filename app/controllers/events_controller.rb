@@ -1,6 +1,6 @@
 
 class EventsController < ApplicationController
-    before_action :find_event
+    before_action :find_event, only: [:show, :destroy]
 
     def index
         @events = Event.all 
@@ -8,7 +8,6 @@ class EventsController < ApplicationController
 
 
     def show
-        @event= Event.find_by_id(params[:id])
         # parsing source IP address
         @srcIP = @event.data.match(/src=((\d{1,3}\.){3}\d{1,3})/)[1]
         # parsing Destination IP address
@@ -58,6 +57,7 @@ class EventsController < ApplicationController
 
 
     private
+    
     def find_event
         @event= Event.find_by_id(params[:id])
     end
