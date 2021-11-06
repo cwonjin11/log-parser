@@ -11,7 +11,7 @@ class Event< ApplicationRecord
     
     # log creation time formatting
     def datetime
-        self.created_at.strftime("%Y-%m-%d / %H:%M:%S") if self.created_at
+        self.created_at.in_time_zone('Eastern Time (US & Canada)').strftime("%Y-%m-%d / %H:%M:%S") if self.created_at
     end
 
 end
