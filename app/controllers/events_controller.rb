@@ -9,16 +9,21 @@ class EventsController < ApplicationController
 
     def show
         # parsing source IP address
-        @srcIP = @event.data.match(/src=((\d{1,3}\.){3}\d{1,3})/)[1]
+        begin
+        @srcIP = @event.data.match(/src=((25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)/)[0].slice(4...)
+        rescue NoMethodError
+            @srcIP = @event.data.match(/src=((\d{1,3}\.){3}\d{1,3})/)[1]
+        end
+
         # parsing Destination IP address
-        @dstIP = @event.data.match(/dst=((\d{1,3}\.){3}\d{1,3})/)[1]
+        @dstIP = @event.data.match(/dst=((25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)\.){3}(25[0-5]|2[0-4]\d|1\d\d|[1-9]\d|\d)/)[0].slice(4...)
         # validation check for source IP
         @srcIP_validation_check = IPAddress.valid? @srcIP
         # validation check for destination ip
         @dstIP_validation_check = IPAddress.valid? @dstIP
         # private check 
         if @srcIP_validation_check == false
-            @srcIP_private_check = "Invalid IP"
+            @srcIP_private_check = "false"
             ip2 = IPAddress @dstIP
             @dstIP_private_check = ip2.private?
         else
